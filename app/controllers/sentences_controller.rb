@@ -10,6 +10,7 @@ class SentencesController < ApplicationController
   def create
     @sentence = Sentence.new(sentence_params)
     if @sentence.save
+      @sentence.say
       flash[:notice] = 'successfully created'
       redirect_to sentences_path
     else
